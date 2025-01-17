@@ -11,7 +11,7 @@
 	(clisp ("clisp"))))
 
 ;;Wesnoth WML mode
-(add-to-list 'load-path "/home/jack/apps/wesnoth-mode/")
+(add-to-list 'load-path "~/apps/wesnoth-mode/")
 (autoload 'wesnoth-mode "wesnoth-mode" "Major mode for editing WML." t)
 
 ;;scheme lsp
@@ -29,9 +29,10 @@ Life is simple like a show.
 Face the darkest, or hide the fist.
 Magic swarms in the mist.
 
-Never mind.
-Only regret the regrets.
-Please don't stop.
+Never mind what being met.
+Only weep for the regret.
+
+Please insist till the last.
 Follow the call from the past.
 
 ")

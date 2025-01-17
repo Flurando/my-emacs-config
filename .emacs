@@ -20,6 +20,8 @@
 ;;;some config that should be toggled before exwm
 ;; Protect the hard links
 (setq backup-by-copying-when-linked t)
+;; Ban the Welcome Screen when starting emacs
+(setq inhibit-startup-screen t)
 ;; Change the mode used by *scratch*
 (setq initial-major-mode 'eshell-mode)
 ;; Disable the eshell welcome message
