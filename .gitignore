@@ -2,3 +2,5 @@
 !.gitignore
 !init.el
 !.emacs
+!.xinitrc
+
