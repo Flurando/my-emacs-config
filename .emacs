@@ -17,6 +17,8 @@
  '(mode-line ((t (:background "black" :foreground "gold" :box (:line-width (1 . -1) :style released-button)))))
  '(mode-line-inactive ((t (:inherit mode-line :background "grey30" :foreground "grey80" :box (:line-width (1 . -1) :color "grey40") :weight light)))))
 
+;; Execute and update the dpi
+(shell-command "echo 'Xft.dpi: 300' | xrdb")
 ;;;some config that should be toggled before exwm
 ;; Protect the hard links
 (setq backup-by-copying-when-linked t)
@@ -113,7 +115,7 @@
 (define-key exwm-mode-map [?\C-q] 'exwm-input-send-next-key)
 
 ;; You can hide the minibuffer and echo area when they're not used, by uncommenting the following line.
-;;(setq exwm-workspace-minibuffer-position 'bottom)
+(setq exwm-workspace-minibuffer-position 'bottom)
 
 ;; load init.el
 (load "~/.emacs.d/init.el")

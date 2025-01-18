@@ -37,3 +37,7 @@ Please insist till the last.
 Follow the call from the past.
 
 ")
+
+;;use ivy-mode instead of ido-mode
+(ido-mode nil)
+(ivy-mode 1)
