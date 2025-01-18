@@ -37,9 +37,11 @@
 ;; Alter the behavior of 'C-x b' as proposed
 (icomplete-vertical-mode 1)
 ;; Start the server if there is no running server, though not required, making things more interesting
-(if (and (fboundp 'server-running-p)
-	 (not (server-running-p)))
-    (server-start))
+(defun safe-start-server ()
+  (if (and (fboundp 'server-running-p)
+	   (not (server-running-p)))
+      (server-start)))
+(safe-start-server)
 
 ;;;exwm
 (require 'exwm)
@@ -116,5 +118,11 @@
 ;; load init.el
 (load "~/.emacs.d/init.el")
 
-;;enable exwm when things are ready
+;; Try to start server again
+(safe-start-server)
+
+;; Enable exwm when things are ready
 (exwm-enable)
+
+;; Just confirm that a server is started
+(safe-start-server)

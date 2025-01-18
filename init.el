@@ -15,9 +15,10 @@
 (autoload 'wesnoth-mode "wesnoth-mode" "Major mode for editing WML." t)
 
 ;;scheme lsp
-(require 'eglot)
-(add-to-list 'eglot-server-programs
-	     `(scheme-mode . ("guile-lsp-server")))
+;;sadly not really usable, wait until it enters default guix channel
+;(require 'eglot)
+;(add-to-list 'eglot-server-programs
+;	     `(scheme-mode . ("guile-lsp-server")))
 ;(add-hook 'scheme-mode-hook #'eglot-ensure) ;uncomment this line only when automatic start is desired, but to my test the guile-lsp-server is doing nothing about enhancing geiser, only making life harder unfortunately
 (setq scheme-program-name "guile")
 
