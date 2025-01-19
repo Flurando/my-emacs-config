@@ -41,3 +41,8 @@ Follow the call from the past.
 ;;use ivy-mode instead of ido-mode
 (ido-mode nil)
 (ivy-mode 1)
+
+;; Allow resizing with mouse, of non-floating windows.
+(setq window-divider-default-bottom-width 2
+      window-divider-default-right-width 2)
+(window-divider-mode)

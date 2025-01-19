@@ -19,6 +19,7 @@
 
 ;; Execute and update the dpi
 (shell-command "echo 'Xft.dpi: 300' | xrdb")
+
 ;;;some config that should be toggled before exwm
 ;; Protect the hard links
 (setq backup-by-copying-when-linked t)
@@ -115,7 +116,7 @@
 (define-key exwm-mode-map [?\C-q] 'exwm-input-send-next-key)
 
 ;; You can hide the minibuffer and echo area when they're not used, by uncommenting the following line.
-(setq exwm-workspace-minibuffer-position 'bottom)
+;(setq exwm-workspace-minibuffer-position 'bottom)
 
 ;; load init.el
 (load "~/.emacs.d/init.el")
@@ -125,6 +126,9 @@
 
 ;; Enable exwm when things are ready
 (exwm-enable)
+
+;; Toggle on exwm-wim for chinese input
+(exwm-xim-mode 1)
 
 ;; Just confirm that a server is started
 (safe-start-server)
