@@ -46,3 +46,7 @@ Follow the call from the past.
 (setq window-divider-default-bottom-width 2
       window-divider-default-right-width 2)
 (window-divider-mode)
+
+;; erc related confs, currently only login to libera chat with identity is supported
+(setopt erc-sasl-mechanism 'plain)
+(load "~/.emacs.d/erc/connect-spec-proc.el")

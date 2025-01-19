@@ -26,7 +26,7 @@
 ;; Ban the Welcome Screen when starting emacs
 (setq inhibit-startup-screen t)
 ;; Change the mode used by *scratch*
-(setq initial-major-mode 'eshell-mode)
+(setq initial-major-mode 'fundamental-mode)
 ;; Disable the eshell welcome message
 (setq eshell-banner-message "")
 ;; Disable menu-bar, tool-bar and scroll-bar to increase the usable space.
