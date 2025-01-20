@@ -6,8 +6,17 @@
  '(display-time-day-and-date t)
  '(display-time-format "[%Y.%m.%d<%W>%H:%M:%S(%Z)]")
  '(display-time-mode t)
+ '(erc-modules
+   '(autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands readonly ring sasl stamp track))
  '(mode-line-percent-position nil)
- '(package-selected-packages '(cdlatex geiser-guile rust-mode)))
+ '(mouse-wheel-down-alternate-event 'wheel-down)
+ '(mouse-wheel-down-event 'mouse-5)
+ '(mouse-wheel-tilt-scroll t)
+ '(mouse-wheel-up-alternate-event 'wheel-up)
+ '(mouse-wheel-up-event 'mouse-4)
+ '(package-selected-packages '(cdlatex geiser-guile rust-mode))
+ '(tool-bar-mode nil)
+ '(xterm-mouse-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -29,9 +38,8 @@
 (setq initial-major-mode 'fundamental-mode)
 ;; Disable the eshell welcome message
 (setq eshell-banner-message "")
-;; Disable menu-bar, tool-bar and scroll-bar to increase the usable space.
+;; Disable menu-bar, scroll-bar to increase the usable space.
 (menu-bar-mode -1)
-(tool-bar-mode -1)
 (scroll-bar-mode -1)
 ;; Also shrink fringes to 1 pixel.
 (fringe-mode 1)
