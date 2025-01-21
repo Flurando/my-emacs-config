@@ -87,7 +87,9 @@
 	([s-left] . windmove-left)
 	([s-right] . windmove-right)
 	([s-up] . windmove-up)
-	([s-down] . windmove-down)))
+	([s-down] . windmove-down)
+	;;Support quick switch line/char mode in gui apps
+	([?\s-o] . exwm-input-toggle-keyboard)))
 
 (setq exwm-input-simulation-keys
       '(
@@ -135,8 +137,8 @@
 ;; Enable exwm when things are ready
 (exwm-enable)
 
-;; Toggle on exwm-wim for chinese input
-(exwm-xim-mode 1)
+;; Toggle on exwm-wim for chinese input, abandoned because somehow my env is still set to fcitx even I set in .xinitrc exclusively
+;(exwm-xim-mode 1)
 
 ;; Just confirm that a server is started
 (safe-start-server)

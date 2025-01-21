@@ -14,10 +14,10 @@ xsetroot -cursor_name left_ptr
 xset r rate 200 60
 
 # Uncomment the following block to use the exwm-xim module
-export XMODIFIERS=@im=exwm-wim
-export GTK_IM_MODULE=xim
-export QT_IM_MODULE=xim
-export CLUTTER_IM_MODULE=xim
+#export XMODIFIERS=@im=exwm-wim
+#export GTK_IM_MODULE=xim
+#export QT_IM_MODULE=xim
+#export CLUTTER_IM_MODULE=xim
 
 export VISUAL=emacsclient
 export EDITOR="$VISUAL"
