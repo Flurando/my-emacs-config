@@ -1,6 +1,13 @@
 *
+
 !.gitignore
 !init.el
 !.emacs
 !.xinitrc
+
+!exwm/
+!exwm/*
+
+exwm/*~
+exwm/*#
 
