@@ -3,7 +3,6 @@
 !.gitignore
 !init.el
 !.emacs
-!.xinitrc
 
 !exwm/
 !exwm/*
