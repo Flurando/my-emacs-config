@@ -16,7 +16,6 @@
  '(initial-major-mode 'fundamental-mode)
  '(initial-scratch-message
    "Make it happen, or let it go.\12Life is simple like a show.\12\12Face the darkest, or hide the fist.\12Magic swarms in the mist.\12\12Never mind what being met.\12Only weep for the regret.\12\12Please insist till the last.\12Follow the call from the past.\12\12")
- '(ivy-mode t)
  '(menu-bar-mode nil)
  '(mode-line-percent-position nil)
  '(mouse-wheel-down-alternate-event 'wheel-down)
@@ -24,17 +23,14 @@
  '(mouse-wheel-tilt-scroll t)
  '(mouse-wheel-up-alternate-event 'wheel-up)
  '(mouse-wheel-up-event 'mouse-4)
- '(package-archives
-   '(("gnu" . "https://elpa.gnu.org/packages/")
-     ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-     ("melpa" . "https://melpa.org/packages/")))
- '(package-enable-at-startup nil)
- '(package-install-upgrade-built-in t)
  '(package-selected-packages
-   '(compat magit guix sly system-packages geiser wesnoth-mode quelpa-use-package quelpa cdlatex geiser-guile))
+   '(desktop-environment exwm counsel swiper ivy dash compat magit guix sly system-packages geiser wesnoth-mode quelpa-use-package quelpa cdlatex geiser-guile))
  '(scheme-program-name "guile")
  '(scroll-bar-mode nil)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(window-divider-default-bottom-width 2 nil nil "Customized with use-package window-divider")
+ '(window-divider-default-right-width 2 nil nil "Customized with use-package window-divider")
+ '(window-divider-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -43,6 +39,10 @@
  '(default ((t (:inherit nil :extend nil :stipple nil :background "black" :foreground "yellow" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 300 :width normal :foundry "GOOG" :family "Noto Sans Mono"))))
  '(mode-line ((t (:background "black" :foreground "gold" :box (:line-width (1 . -1) :style released-button)))))
  '(mode-line-inactive ((t (:inherit mode-line :background "grey30" :foreground "grey80" :box (:line-width (1 . -1) :color "grey40") :weight light)))))
+
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 
 ;; Actually use-package is available by default in newer emacs, but whatever!
 (unless (package-installed-p 'use-package)
@@ -70,6 +70,7 @@
 
 ;; Wesnoth WML mode
 (use-package wesnoth-mode
+  :ensure t
   :ensure-system-package git
   :quelpa
   (wesnoth-mode :fetcher git
@@ -101,18 +102,13 @@
 
 ;; Geiser, the slime/sly (Common Lisp) equivalence in Scheme world
 (use-package geiser
-  :ensure t
+  :ensure geiser-guile
   :ensure-system-package guile
   :custom
-  (geiser-active-implementations '(guile)))
-(use-package geiser-guile
-  :ensure t
-  :ensure-system-package guile
-  :after geiser
-  :custom
+  (geiser-active-implementations '(guile))
   (geiser-guile-binary (executable-find "guile"))
   (geiser-guile-load-path nil)
-  (geiser-guile-load-init-file t))
+  (geiser-guile-load-init-file nil))
 
 ;; Auto completion
 (use-package ivy
@@ -124,9 +120,23 @@
   :ensure t
   :after (:all ivy swiper)
   :custom
-  (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only))
+  (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
+  :config
+  (ivy-mode))
 
 ;; Magit, the git interface for emacs
 (use-package magit
   :ensure t
   :ensure-system-package git)
+
+(use-package org
+  :mode (("\\.org$" . org-mode))
+  :ensure t
+  :custom
+  (org-babel-lisp-eval-fn #'sly-eval)
+  :config
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((scheme . t)
+     (python . t)
+     (lisp . t))))

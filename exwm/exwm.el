@@ -82,16 +82,6 @@
   (require 'exwm-systemtray)
   (exwm-systemtray-mode 1))
 
-;; Allow resizing with mouse, of non-floating windows.
-(use-package window-divider
-  :ensure t
-  :after exwm
-  :init
-  (setq window-divider-default-bottom-width 2
-	window-divider-default-right-width 2)
-  :config
-  (window-divider-mode))
-
 (use-package desktop-environment
   :ensure t
   :ensure-system-package (scrot brightnessctl playerctl)
