@@ -23,13 +23,14 @@
  '(mouse-wheel-tilt-scroll t)
  '(mouse-wheel-up-alternate-event 'wheel-up)
  '(mouse-wheel-up-event 'mouse-4)
+ '(package-archive-priorities '(("gnu" . 3) ("nongnu" . 2)))
  '(package-selected-packages
-   '(desktop-environment exwm counsel swiper ivy dash compat magit guix sly system-packages geiser wesnoth-mode quelpa-use-package quelpa cdlatex geiser-guile))
+   '(markdown-mode cdlatex desktop-environment exwm counsel swiper ivy dash compat magit guix sly system-packages geiser wesnoth-mode quelpa-use-package quelpa geiser-guile))
  '(scheme-program-name "guile")
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
- '(window-divider-default-bottom-width 2 nil nil "Customized with use-package window-divider")
- '(window-divider-default-right-width 2 nil nil "Customized with use-package window-divider")
+ '(window-divider-default-bottom-width 2)
+ '(window-divider-default-right-width 2)
  '(window-divider-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -130,8 +131,8 @@
   :ensure-system-package git)
 
 (use-package org
-  :mode (("\\.org$" . org-mode))
   :ensure t
+  :after (:all sly geiser gnuplot)
   :custom
   (org-babel-lisp-eval-fn #'sly-eval)
   :config
@@ -139,4 +140,11 @@
    'org-babel-load-languages
    '((scheme . t)
      (python . t)
-     (lisp . t))))
+     (lisp . t)
+     (gnuplot . t))))
+
+(use-package cdlatex
+ :ensure t)
+
+(use-package gnuplot
+  :ensure t)
